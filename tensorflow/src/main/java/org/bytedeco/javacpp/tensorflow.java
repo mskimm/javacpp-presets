@@ -13969,6 +13969,10 @@ limitations under the License.
 
 @Namespace("tensorflow::ops") public static native @ByVal NodeBuilder.NodeOut AsNodeOut(@Const @ByRef Scope scope, @Const @ByRef Input inp);
 
+
+
+
+
 @Namespace("tensorflow::ops") public static native @ByVal Output Const(@Const @ByRef Scope scope, @Cast("const unsigned char") byte v, @Const @ByVal TensorShape shape);
 
 @Namespace("tensorflow::ops") public static native @ByVal Output Const(@Const @ByRef Scope scope, short v, @Const @ByVal TensorShape shape);
@@ -13983,8 +13987,13 @@ limitations under the License.
 
 @Namespace("tensorflow::ops") public static native @ByVal Output Const(@Const @ByRef Scope scope, @Cast("const bool") boolean v, @Const @ByVal TensorShape shape);
 
-@Namespace("tensorflow::ops") public static native @ByVal Output Const(@Const @ByRef Scope scope, @StdString BytePointer v, @Const @ByVal TensorShape shape);
-@Namespace("tensorflow::ops") public static native @ByVal Output Const(@Const @ByRef Scope scope, @StdString String v, @Const @ByVal TensorShape shape);
+
+
+
+
+
+
+
 
 @Namespace("tensorflow::ops") public static native @ByVal NodeOutVector AsNodeOutList(@Const @ByRef Scope scope,
                                                 @Const @ByRef InputList inp);

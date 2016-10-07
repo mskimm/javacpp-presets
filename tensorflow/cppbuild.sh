@@ -8,7 +8,7 @@ if [[ -z "$PLATFORM" ]]; then
 fi
 
 export PYTHON_BIN_PATH=$(which python)
-export TF_NEED_CUDA=0
+export TF_NEED_CUDA=${TF_NEED_CUDA:-0}
 export TF_NEED_GCP=0
 export TF_CUDA_VERSION=8.0
 export TF_CUDNN_VERSION=5
@@ -26,13 +26,19 @@ case $PLATFORM in
     linux-x86_64)
         export CC="/usr/bin/gcc"
         export CXX="/usr/bin/g++"
-        export TF_NEED_CUDA=1
         export GCC_HOST_COMPILER_PATH=$CC
-        export BUILDFLAGS="--config=cuda --copt=-m64 --linkopt=-m64"
+        if [ "$TF_NEED_CUDA" -eq 1 ]; then
+            export BUILDFLAGS="--config=cuda --copt=-m64 --linkopt=-m64"
+        else
+            export BUILDFLAGS="--copt=-m64 --linkopt=-m64"
+        fi
         ;;
     macosx-*)
-        export TF_NEED_CUDA=1
-        export BUILDFLAGS="--config=cuda --linkopt=-install_name --linkopt=@rpath/libtensorflow.so"
+        if [ "$TF_NEED_CUDA" -eq 1 ]; then
+            export BUILDFLAGS="--config=cuda --linkopt=-install_name --linkopt=@rpath/libtensorflow.so"
+        else
+            export BUILDFLAGS="--linkopt=-install_name --linkopt=@rpath/libtensorflow.so"
+        fi
         ;;
     *)
         echo "Error: Platform \"$PLATFORM\" is not supported"
