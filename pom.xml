@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.bytedeco</groupId>
   <artifactId>javacpp-presets</artifactId>
-  <version>1.2.4</version>
+  <version>1.2.5-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>JavaCPP Presets</name>
@@ -37,6 +37,24 @@
   </developers>
 
   <modules>
+    <module>opencv</module>
+    <module>ffmpeg</module>
+    <module>flycapture</module>
+    <module>libdc1394</module>
+    <module>libfreenect</module>
+    <module>videoinput</module>
+    <module>artoolkitplus</module>
+    <module>chilitags</module>
+    <module>flandmark</module>
+    <module>openblas</module>
+    <module>fftw</module>
+    <module>gsl</module>
+    <module>llvm</module>
+    <module>leptonica</module>
+    <module>tesseract</module>
+    <module>caffe</module>
+    <module>cuda</module>
+    <module>mxnet</module>
     <module>tensorflow</module>
     <module>annoy</module>
   </modules>
